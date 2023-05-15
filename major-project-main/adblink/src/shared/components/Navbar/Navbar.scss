@@ -1,0 +1,23 @@
+@import "../../../variables";
+@import "../../../mixins";
+
+nav.srm-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	padding: 1rem 0;
+	div.nav-logo {
+		height: 3rem;
+		width: auto;
+	}
+	div.nav-list {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+		p {
+			margin-left: 2rem;
+		}
+	}
+}

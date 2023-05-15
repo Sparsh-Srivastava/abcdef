@@ -1,0 +1,68 @@
+@import "./variables";
+
+@mixin boxShadow($color: rgba(0, 0, 0, 0.16)) {
+	box-shadow: 0 1.5px 3px 0 $color;
+}
+
+@mixin scrollStyle {
+	scroll-behavior: smooth;
+	&::-webkit-scrollbar {
+		width: 7px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $thumb;
+		border-radius: 0.5rem;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+}
+
+@mixin for-extra-large-devices {
+	@media (max-width: $xl) {
+		@content;
+	}
+}
+
+@mixin for-large-devices {
+	@media (max-width: $lg) {
+		@content;
+	}
+}
+
+@mixin for-small-screens {
+	@media (max-width: $md) {
+		@content;
+	}
+}
+
+@mixin for-mobile-only {
+	@media only screen and (max-width: $sm) and (orientation: portrait) {
+		@content;
+	}
+}
+
+@mixin fluid-type(
+	$min-font-size: $default-min-font-size,
+	$max-font-size: $default-max-font-size,
+	$lower-range: $xs,
+	$upper-range: $xl
+) {
+	font-size: calc(
+		#{$min-font-size} + #{(
+				($max-font-size / ($max-font-size * 0 + 1)) -
+					($min-font-size / ($min-font-size * 0 + 1))
+			)} * ((100vw - #{$lower-range}) / #{(
+						($upper-range / ($upper-range * 0 + 1)) -
+							($lower-range / ($lower-range * 0 + 1))
+					)})
+	);
+
+	@media screen and (max-width: $lower-range) {
+		font-size: $min-font-size;
+	}
+
+	@media screen and (min-width: $upper-range) {
+		font-size: $max-font-size;
+	}
+}

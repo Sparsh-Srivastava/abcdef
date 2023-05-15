@@ -1,0 +1,96 @@
+@import "../../mixins";
+@import "../../variables";
+
+section.srm-home {
+	padding: 0 2rem;
+	form {
+		main.upload-section {
+			display: flex;
+			flex-direction: row;
+			div.upload {
+				text-align: left;
+				width: 50%;
+				flex: 1 0 50%;
+				div {
+					width: auto;
+					margin: 1rem 6rem 0 0;
+					label {
+						display: block;
+						font-size: 0.7rem;
+						font-weight: 700;
+						&::before {
+							content: "*";
+							color: var(--secondary);
+						}
+					}
+					input,
+					textarea {
+						width: 100%;
+						border: none;
+						outline: none;
+						border-bottom: 0.1rem solid var(--background-secondary);
+						&:focus {
+							border-bottom: 0.1rem solid var(--primary);
+						}
+					}
+					div.add-tags {
+						width: 100%;
+						display: flex;
+						flex-direction: row;
+						button {
+							margin: 0 0.5rem;
+							border: none;
+							outline: none;
+							border-radius: 0.25rem;
+							@include boxShadow;
+							background-color: var(--primary);
+							padding: 0.25rem 1rem;
+						}
+					}
+					div.preview-tags {
+						min-height: 8rem;
+						width: 100%;
+						border: 0.1rem solid var(--primary);
+						display: flex;
+						flex-direction: row;
+						flex-wrap: wrap;
+						div {
+							margin: 0.25rem;
+							display: inline-block;
+							width: fit-content;
+							height: fit-content;
+							padding: 0.25rem 0.5rem;
+							background-color: var(--primary);
+							color: var(--background-primary);
+							border-radius: 0.5rem;
+							svg {
+								cursor: pointer;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+			}
+			div.preview {
+				padding: 2rem 0;
+				width: 50%;
+				flex: 1 0 50%;
+				background-color: var(--background-secondary);
+				img {
+					margin: 0 auto;
+					width: 80%;
+					@include boxShadow;
+				}
+			}
+		}
+		button.post-submit {
+			margin: 2rem auto;
+			border: none;
+			outline: none;
+			@include boxShadow;
+			padding: 0.5rem 2rem;
+			border-radius: 0.25rem;
+			background-color: var(--tertiary);
+		}
+	}
+}
